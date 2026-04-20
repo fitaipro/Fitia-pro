@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mon Espace — FitAI Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:500;display:none;align-items:center;justify-content:center;padding:20px;}
+  .modal-box{background:var(--card);border:1px solid var(--border);border-radius:16px;width:100%;max-width:700px;max-height:85vh;overflow:hidden;display:flex;flex-direction:column;}
+  .modal-header{padding:20px 24px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;}
+  .modal-header h3{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;}
+  .modal-close{background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1;}
+  .modal-close:hover{color:var(--white);}
+  .modal-body{padding:24px;overflow-y:auto;flex:1;}
+  #modal-content{white-space:pre-wrap;font-size:13px;line-height:1.9;color:var(--text);}
+  .dash-nav{background:rgba(5,5,10,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);position:fixed;top:0;left:0;right:0;z-index:200;}
+  .dash-nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding:16px 32px;}
+</style>
+</head>
+<body style="padding-top:0;">
+
+<!-- DASH NAV -->
+<nav class="dash-nav">
+  <div class="dash-nav-inner">
+    <a href="index.html" class="nav-logo">Fit<span>AI</span><em>·</em>Pro</a>
+    <div style="display:flex;gap:12px;align-items:center;">
+      <span id="dash-plan" style="font-size:12px;color:var(--muted);background:var(--card);border:1px solid var(--border);padding:4px 12px;border-radius:100px;"></span>
+      <a href="index.html#generator" class="btn-next" style="padding:9px 18px;font-size:13px;text-decoration:none;">+ Nouveau plan</a>
+      <button onclick="Auth.logout()" class="btn-back" style="padding:9px 16px;font-size:12px;">Déconnexion</button>
+    </div>
+  </div>
+</nav>
+
+<div class="dashboard">
+  <div class="dash-header">
+    <div>
+      <div class="dash-hello">Bonjour, <span id="dash-user-name">…</span> 👋</div>
+      <p style="color:var(--muted);font-size:13px;margin-top:4px;">Voici ton espace FitAI</p>
+    </div>
+    <a href="index.html#generator" class="btn-generate" style="text-decoration:none;">⚡ Générer un programme</a>
+  </div>
+
+  <!-- STATS -->
+  <div class="dash-grid">
+    <div class="dash-stat-card">
+      <div class="dash-stat-num" id="dash-programs-count">0</div>
+      <div class="dash-stat-label">Programmes générés</div>
+    </div>
+    <div class="dash-stat-card">
+      <div class="dash-stat-num" id="dash-plan-stat" style="font-size:24px;">—</div>
+      <div class="dash-stat-label">Ton plan actuel</div>
+    </div>
+    <div class="dash-stat-card">
+      <div class="dash-stat-num" style="color:var(--lime);">12<span style="font-size:16px;color:var(--muted);"> sem.</span></div>
+      <div class="dash-stat-label">Durée du dernier programme</div>
+    </div>
+  </div>
+
+  <!-- PROGRAMS LIST -->
+  <div class="dash-programs">
+    <div class="dash-section-title">Mes programmes</div>
+    <div class="program-list" id="program-list">
+      <div style="text-align:center;padding:40px;color:var(--muted);">Chargement…</div>
+    </div>
+  </div>
+
+  <!-- UPGRADE BANNER -->
+  <div id="upgrade-banner" style="max-width:1100px;margin:28px auto 0;background:linear-gradient(135deg,rgba(108,71,255,.15) 0%,rgba(255,71,120,.1) 100%);border:1px solid rgba(108,71,255,.3);border-radius:14px;padding:24px 28px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;">
+    <div>
+      <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:4px;">Passe à FitAI Pro ⭐</div>
+      <div style="font-size:13px;color:var(--muted);">Programmes illimités, suivi, ajustements IA hebdomadaires et export PDF — à 12€/mois.</div>
+    </div>
+    <a href="signup.html?plan=pro" class="btn-generate" style="text-decoration:none;white-space:nowrap;">Essayer 7 jours gratuit →</a>
+  </div>
+</div>
+
+<!-- MODAL PROGRAM -->
+<div class="modal-overlay" id="program-modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>📋 Mon programme</h3>
+      <button class="modal-close" onclick="closeModal()">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="modal-content"></div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

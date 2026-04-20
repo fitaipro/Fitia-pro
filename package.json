@@ -1,0 +1,17 @@
+{
+  "name": "fitai-pro",
+  "version": "1.0.0",
+  "description": "Générateur de programmes de musculation propulsé par l'IA",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

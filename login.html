@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connexion — FitAI Pro</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Fit<span>AI</span><em>·</em>Pro</a>
+    <div></div><div></div>
+  </div>
+</nav>
+
+<div class="auth-page">
+  <div class="auth-card">
+    <div class="auth-logo">Fit<span>AI</span>·Pro</div>
+    <h1 class="auth-title">Bon retour 👋</h1>
+    <p class="auth-sub">Connecte-toi pour accéder à tes programmes</p>
+
+    <div class="auth-error" id="login-error"></div>
+
+    <div class="auth-field">
+      <label>Adresse email</label>
+      <input type="email" id="login-email" placeholder="ton@email.com" autocomplete="email">
+    </div>
+    <div class="auth-field">
+      <label>Mot de passe</label>
+      <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password">
+    </div>
+
+    <button class="auth-btn" onclick="handleLogin()">Se connecter →</button>
+
+    <div class="auth-divider">ou</div>
+    <div class="auth-switch">Pas encore de compte ? <a href="signup.html">Créer mon compte gratuitement</a></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

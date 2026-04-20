@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitAI Pro — Générateur de Programme Musculation IA</title>
+<meta name="description" content="Génère ton programme de musculation personnalisé en 30 secondes grâce à l'intelligence artificielle. Plan d'entraînement, nutrition, suppléments — tout inclus.">
+<meta name="keywords" content="programme musculation personnalisé, coach sportif IA, plan entraînement, nutrition sport">
+<meta property="og:title" content="FitAI Pro — Ton Coach IA Personnel">
+<meta property="og:description" content="Programme musculation 100% personnalisé généré par IA en 30 secondes.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">Fit<span>AI</span><em>·</em>Pro</div>
+    <div class="nav-links">
+      <a href="#how">Comment ça marche</a>
+      <a href="#features">Fonctionnalités</a>
+      <a href="#pricing">Tarifs</a>
+    </div>
+    <div class="nav-right">
+      <a href="login.html" class="nav-link-btn">Connexion</a>
+      <button class="nav-cta" onclick="scrollToGenerator()">Générer mon plan →</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><div class="dot"></div> Propulsé par Intelligence Artificielle</div>
+    <h1>Ton programme<br><span class="gradient-text">musculation</span><br><span class="lime-text">sur mesure.</span></h1>
+    <p>Réponds à 4 questions. Notre IA analyse ton profil et génère un plan d'entraînement complet, personnalisé à 100% — en moins de 30 secondes.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="scrollToGenerator()">⚡ Créer mon programme gratuit</button>
+      <button class="btn-secondary" onclick="document.getElementById('how').scrollIntoView({behavior:'smooth'})">Voir comment ça marche</button>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="stat-num">12K<span>+</span></div><div class="stat-label">Plans générés</div></div>
+      <div class="hero-stat"><div class="stat-num">4.9<span>/5</span></div><div class="stat-label">Note utilisateurs</div></div>
+      <div class="hero-stat"><div class="stat-num">30<span>s</span></div><div class="stat-label">Temps de génération</div></div>
+      <div class="hero-stat"><div class="stat-num">100<span>%</span></div><div class="stat-label">Personnalisé</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" class="section">
+  <div class="container">
+    <div class="section-tag">Processus</div>
+    <h2 class="section-title">3 étapes vers<br>ton programme idéal</h2>
+    <p class="section-sub">Pas de complications. Remplis le formulaire, notre IA fait le reste.</p>
+    <div class="steps-grid">
+      <div class="step-card"><div class="step-num">01</div><div class="step-icon">📋</div><h3>Ton profil</h3><p>Âge, poids, niveau, objectif. 4 questions, moins de 2 minutes.</p></div>
+      <div class="step-card"><div class="step-num">02</div><div class="step-icon">🤖</div><h3>L'IA analyse</h3><p>Notre moteur IA traite tes données et construit un programme adapté à ta morphologie.</p></div>
+      <div class="step-card"><div class="step-num">03</div><div class="step-icon">🏋️</div><h3>Commence à t'entraîner</h3><p>Séances, nutrition, suppléments, progression sur 12 semaines. Prêt à utiliser.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GENERATOR -->
+<section id="generator" class="section section-dark">
+  <div class="container">
+    <div class="section-tag">Générateur IA</div>
+    <h2 class="section-title">Crée ton programme<br>maintenant</h2>
+    <p class="section-sub">Gratuit · Personnalisé · Généré en temps réel</p>
+    <div class="form-wrapper">
+      <div class="form-header">
+        <div class="form-header-icon">🤖</div>
+        <div><h3>Générateur de Programme FitAI</h3><p>4 étapes · ~2 minutes · Plan complet instantané</p></div>
+      </div>
+      <div class="form-body" id="form-container">
+        <div class="step-indicator">
+          <div class="step-dot active" id="dot-1"></div>
+          <div class="step-dot" id="dot-2"></div>
+          <div class="step-dot" id="dot-3"></div>
+          <div class="step-dot" id="dot-4"></div>
+          <span class="step-label">Étape <strong id="step-label-num">1</strong> / 4</span>
+        </div>
+
+        <!-- STEP 1 -->
+        <div class="form-step active" id="step-1">
+          <div class="step-title">Ton profil de base</div>
+          <div class="step-sub">Ces informations calibrent l'intensité et le volume.</div>
+          <div class="fields-grid">
+            <div class="field"><label>Sexe</label><select id="sexe"><option value="homme">Homme</option><option value="femme">Femme</option></select></div>
+            <div class="field"><label>Âge</label><input type="number" id="age" placeholder="Ex: 28" min="16" max="70"></div>
+            <div class="field"><label>Poids (kg)</label><input type="number" id="poids" placeholder="Ex: 75"></div>
+            <div class="field"><label>Taille (cm)</label><input type="number" id="taille" placeholder="Ex: 178"></div>
+          </div>
+          <div class="form-nav"><div></div><button class="btn-next" onclick="goToStep(2)">Suivant →</button></div>
+        </div>
+
+        <!-- STEP 2 -->
+        <div class="form-step" id="step-2">
+          <div class="step-title">Ton objectif & niveau</div>
+          <div class="step-sub">L'IA adapte le volume et l'intensité en conséquence.</div>
+          <div class="option-grid cols2" id="objectif-cards">
+            <label class="opt-card" onclick="selectOpt(this,'objectif-cards')"><input type="radio" name="objectif" value="prise de masse musculaire"><span class="opt-icon">💪</span><div><b>Prise de masse</b><small>Construire du muscle</small></div></label>
+            <label class="opt-card" onclick="selectOpt(this,'objectif-cards')"><input type="radio" name="objectif" value="perte de poids et sèche"><span class="opt-icon">🔥</span><div><b>Perte de poids</b><small>Brûler les graisses</small></div></label>
+            <label class="opt-card" onclick="selectOpt(this,'objectif-cards')"><input type="radio" name="objectif" value="recomposition corporelle"><span class="opt-icon">⚡</span><div><b>Recomposition</b><small>Muscle + perte de graisse</small></div></label>
+            <label class="opt-card" onclick="selectOpt(this,'objectif-cards')"><input type="radio" name="objectif" value="force et performance"><span class="opt-icon">🏆</span><div><b>Force</b><small>Puissance athlétique</small></div></label>
+          </div>
+          <div style="height:20px"></div>
+          <div class="option-grid cols3" id="niveau-cards">
+            <label class="opt-card" onclick="selectOpt(this,'niveau-cards')"><input type="radio" name="niveau" value="débutant (moins d'1 an)"><span class="opt-icon">🌱</span><div><b>Débutant</b><small>Moins d'1 an</small></div></label>
+            <label class="opt-card" onclick="selectOpt(this,'niveau-cards')"><input type="radio" name="niveau" value="intermédiaire (1–3 ans)"><span class="opt-icon">💡</span><div><b>Intermédiaire</b><small>1 à 3 ans</small></div></label>
+            <label class="opt-card" onclick="selectOpt(this,'niveau-cards')"><input type="radio" name="niveau" value="avancé (3+ ans)"><span class="opt-icon">🔥</span><div><b>Avancé</b><small>Plus de 3 ans</small></div></label>
+          </div>
+          <div class="form-nav"><button class="btn-back" onclick="goToStep(1)">← Retour</button><button class="btn-next" onclick="goToStep(3)">Suivant →</button></div>
+        </div>
+
+        <!-- STEP 3 -->
+        <div class="form-step" id="step-3">
+          <div class="step-title">Ton planning</div>
+          <div class="step-sub">L'IA structure les séances selon ta disponibilité.</div>
+          <div class="range-wrap">
+            <label>Jours / semaine <span id="freq-val" class="range-val">4 jours</span></label>
+            <input type="range" id="frequence" min="2" max="6" value="4" oninput="document.getElementById('freq-val').textContent=this.value+' jours'">
+          </div>
+          <div class="range-wrap">
+            <label>Durée par séance <span id="duree-val" class="range-val">60 min</span></label>
+            <input type="range" id="duree" min="30" max="120" step="15" value="60" oninput="document.getElementById('duree-val').textContent=this.value+' min'">
+          </div>
+          <div class="fields-grid">
+            <div class="field"><label>Moment</label><select id="moment"><option value="matin">Matin</option><option value="midi">Midi</option><option value="après-midi">Après-midi</option><option value="soir" selected>Soir</option></select></div>
+            <div class="field"><label>Équipement</label><select id="equipement"><option value="salle complète">Salle complète</option><option value="salle basique">Salle basique</option><option value="haltères à domicile">Haltères domicile</option><option value="poids du corps">Poids du corps</option></select></div>
+          </div>
+          <div class="form-nav"><button class="btn-back" onclick="goToStep(2)">← Retour</button><button class="btn-next" onclick="goToStep(4)">Suivant →</button></div>
+        </div>
+
+        <!-- STEP 4 -->
+        <div class="form-step" id="step-4">
+          <div class="step-title">Détails complémentaires</div>
+          <div class="step-sub">Pour affiner la précision du programme.</div>
+          <div class="fields-grid">
+            <div class="field"><label>Morphologie</label><select id="morpho"><option value="ectomorphe">Ectomorphe (maigre, difficile à prendre du poids)</option><option value="mésomorphe">Mésomorphe (constitution athlétique)</option><option value="endomorphe">Endomorphe (tendance à prendre du poids)</option></select></div>
+            <div class="field"><label>Mode de vie</label><select id="modevi"><option value="sédentaire">Sédentaire (assis la majorité du temps)</option><option value="légèrement actif">Légèrement actif</option><option value="actif">Actif (travail physique)</option></select></div>
+          </div>
+          <div class="field" style="margin-bottom:14px"><label>Blessures / contraintes (optionnel)</label><input type="text" id="blessures" placeholder="Ex: douleur genou, hernie discale..."></div>
+          <div class="field"><label>Infos supplémentaires (optionnel)</label><textarea id="extra" rows="3" placeholder="Ex: reprise après arrêt, je voyage souvent..."></textarea></div>
+          <div class="form-nav"><button class="btn-back" onclick="goToStep(3)">← Retour</button><button class="btn-generate" onclick="generateProgram()">⚡ Générer mon programme</button></div>
+        </div>
+      </div>
+
+      <!-- LOADING -->
+      <div id="loading-screen">
+        <div class="loader-ring"></div>
+        <div class="loading-title">L'IA construit ton programme…</div>
+        <div id="loading-steps">
+          <div class="loading-step active" id="ls1">🔍 Analyse du profil…</div>
+          <div class="loading-step" id="ls2">📊 Calcul volume et intensité…</div>
+          <div class="loading-step" id="ls3">🏋️ Construction des séances…</div>
+          <div class="loading-step" id="ls4">🍽️ Plan nutritionnel…</div>
+          <div class="loading-step" id="ls5">✅ Finalisation…</div>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div id="result-screen">
+        <div class="result-header">
+          <span>✅</span>
+          <div><h3>Ton programme est prêt !</h3><p>Généré par FitAI · Programme sur 12 semaines</p></div>
+        </div>
+        <div id="ai-output"></div>
+        <div class="result-actions">
+          <button class="btn-generate" onclick="downloadPlan()">📥 Télécharger le plan</button>
+          <button class="btn-secondary" onclick="restartForm()">🔄 Nouveau programme</button>
+          <button class="btn-secondary" onclick="window.location.href='signup.html'">💾 Sauvegarder mon compte</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="section">
+  <div class="container">
+    <div class="section-tag">Fonctionnalités</div>
+    <h2 class="section-title">Tout généré automatiquement</h2>
+    <p class="section-sub">Notre IA ne liste pas des exercices — elle conçoit un vrai programme complet.</p>
+    <div class="features-grid">
+      <div class="feat-card"><div class="feat-icon purple">🏋️</div><h3>Programme d'entraînement</h3><p>Split hebdomadaire, exercices, séries, répétitions, repos. Adapté à ton niveau et matériel.</p></div>
+      <div class="feat-card"><div class="feat-icon pink">🍽️</div><h3>Plan nutritionnel</h3><p>Calories cibles, macronutriments, timing des repas selon objectif et morphotype.</p></div>
+      <div class="feat-card"><div class="feat-icon lime">📈</div><h3>Progression 12 semaines</h3><p>3 phases structurées (reconditionnement, accumulation, intensification) avec déloads planifiés.</p></div>
+      <div class="feat-card"><div class="feat-icon purple">💊</div><h3>Suppléments</h3><p>Liste priorisée avec dosages et timing selon ton objectif.</p></div>
+      <div class="feat-card"><div class="feat-icon pink">😴</div><h3>Récupération</h3><p>Protocoles récupération, mobilité, sommeil pour maximiser les résultats.</p></div>
+      <div class="feat-card"><div class="feat-icon lime">🎯</div><h3>100% personnalisé</h3><p>Morphologie, contraintes, emploi du temps, blessures — tout pris en compte.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section section-dark">
+  <div class="container">
+    <div class="section-tag">Tarifs</div>
+    <h2 class="section-title">Simple et transparent</h2>
+    <p class="section-sub">Commence gratuitement. Passe au premium pour aller plus loin.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Starter</div>
+        <div class="price-amount"><sup>€</sup>0<span class="period">/mois</span></div>
+        <div class="price-desc">Pour découvrir et générer tes premiers programmes.</div>
+        <ul class="price-features">
+          <li>3 programmes / mois</li>
+          <li>Programme entraînement complet</li>
+          <li>Plan nutritionnel de base</li>
+          <li class="off">Suivi de progression</li>
+          <li class="off">Ajustements hebdomadaires IA</li>
+          <li class="off">Export PDF</li>
+        </ul>
+        <a href="signup.html" class="price-btn outline">Commencer gratuitement</a>
+      </div>
+      <div class="price-card featured">
+        <div class="popular-badge">⭐ Le plus populaire</div>
+        <div class="price-name">Pro</div>
+        <div class="price-amount"><sup>€</sup>12<span class="period">/mois</span></div>
+        <div class="price-desc">Pour les sportifs sérieux qui veulent des résultats.</div>
+        <ul class="price-features">
+          <li>Programmes illimités</li>
+          <li>Programme entraînement complet</li>
+          <li>Plan nutritionnel détaillé</li>
+          <li>Suivi de progression</li>
+          <li>Ajustements hebdomadaires IA</li>
+          <li>Export PDF premium</li>
+        </ul>
+        <a href="signup.html?plan=pro" class="price-btn filled">Essayer 7 jours gratuit</a>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Coach</div>
+        <div class="price-amount"><sup>€</sup>39<span class="period">/mois</span></div>
+        <div class="price-desc">Pour les coachs qui génèrent des plans pour leurs clients.</div>
+        <ul class="price-features">
+          <li>Tout le plan Pro</li>
+          <li>Jusqu'à 50 clients</li>
+          <li>Tableau de bord coach</li>
+          <li>Marque blanche (votre logo)</li>
+          <li>Support prioritaire</li>
+          <li>API d'intégration</li>
+        </ul>
+        <a href="contact.html" class="price-btn outline">Contacter l'équipe</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Fit<span>AI</span>·Pro</div>
+    <div class="footer-links">
+      <a href="#how">Comment ça marche</a>
+      <a href="#features">Fonctionnalités</a>
+      <a href="#pricing">Tarifs</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Confidentialité</a>
+    </div>
+    <div class="footer-copy">© 2025 FitAI Pro · Tous droits réservés</div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
